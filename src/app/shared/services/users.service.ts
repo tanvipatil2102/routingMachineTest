@@ -78,7 +78,7 @@ export class UsersService {
   }
 
   createNewUser(userObj : IUsers){
-    this.usersArray.push(userObj);
+    this.usersArray.unshift(userObj);
     this._router.navigate(['users']);
   }
 
