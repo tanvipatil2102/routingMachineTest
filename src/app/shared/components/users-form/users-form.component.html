@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-2 text-right">
+        <app-back-btn></app-back-btn>
+    </div>
+   <div class="col-md-8">
+     <h1>Users Form</h1>
+   </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="font-weight-bold">{{isInEditMode ? 'Update User' : 'Add User'}}</h1>
+
+        <mat-card>
+            <form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+                <mat-form-field appearance="fill" class="mr-3">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="mr-3">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="mr-3">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="phone">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="mr-3">
+                    <mat-label>Role</mat-label>
+                    <input matInput formControlName="role">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="mr-3">
+                    <mat-label>Role Id</mat-label>
+                    <input matInput formControlName="roleId">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Location</mat-label>
+                    <input matInput formControlName="cLocation">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="mr-3">
+                    <mat-label>Are You Active ??</mat-label>
+                    <mat-select formControlName="isActive">
+                        <mat-option value="yes">Yes</mat-option>
+                        <mat-option value="no">No</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="mr-3">
+                    <mat-label>Bio</mat-label>
+                    <textarea matInput formControlName="bio"></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Profile Image</mat-label>
+                    <input matInput formControlName="profileImg">
+                </mat-form-field>
+
+                <div class="text-right">
+                    <button mat-raised-button color="accent" *ngIf="!isInEditMode" type="submit">Add User</button>
+                    <button mat-raised-button color="accent" *ngIf="isInEditMode" type="button" (click)="onUpdateHandler()">Update User</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+</div>

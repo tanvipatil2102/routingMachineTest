@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-2 text-right">
+        <app-back-btn></app-back-btn>
+    </div>
+   <div class="col-md-8">
+     <h1>Users Details</h1>
+   </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <mat-card class="example-card">
+            <span class="getActiveColor"
+                [ngClass]="{
+                'bg-primary' : getUserObj.isActive,
+                'bg-danger' : !getUserObj.isActive
+            }"
+            ></span>
+            <span class="ml-2" 
+            [ngClass]="{
+                'text-primary' : getUserObj.isActive,
+                'text-danger' : !getUserObj.isActive
+            }"
+            >{{getUserObj.isActive ? 'Active Now' : 'Not Active'}}</span>
+            <mat-card-title-group class="mt-2">
+                <mat-card-title>{{getUserObj.name}} </mat-card-title>
+                <mat-card-subtitle>({{getUserObj.role}})</mat-card-subtitle>
+                <img mat-card-sm-image [src]="getUserObj.profileImg" class="rounded" >
+            </mat-card-title-group>
+            <mat-card-content>
+                <p>Location :<strong> {{getUserObj.cLocation}}</strong></p>
+                <p>Email Id :<strong> {{getUserObj.email}}</strong></p>
+                <p>Phone : <strong>{{getUserObj.phone}}</strong></p>
+                <p>Role Id : <strong>{{getUserObj.roleId}}</strong></p>
+                <strong>{{getUserObj.bio}}</strong>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary"
+                    routerLink="edit"
+                >Edit</button>
+                <button mat-raised-button color="warn" (click)="onRemove()">Remove</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+
